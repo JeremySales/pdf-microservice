@@ -1,0 +1,23 @@
+# Node modules folder
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+
+# OS files
+.DS_Store
+
+# Optional IDE/editor folders
+.vscode/
+.idea/
