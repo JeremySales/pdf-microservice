@@ -9,7 +9,6 @@ const PORT = 3000;
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
-//app.use(multer().single('file'));
 
 app.use('/convert-to-pdf', convertRoute);
 app.use('/generate-pdf', generateRoute);

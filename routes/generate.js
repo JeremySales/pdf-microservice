@@ -8,8 +8,6 @@ const router = express.Router();
 const upload = multer({ dest: '/tmp' }); // or use 'uploads/' if preferred
 
 router.post('/', upload.single('file'), async (req, res) => {
-
-    console.log('🟢 /generate-pdf route hit');
   try {
     const { file } = req;
     const fields = JSON.parse(req.body.fields);

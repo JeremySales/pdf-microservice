@@ -1,9 +1,17 @@
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
 const convertToPdf = require('../converters/convertToPdf');
 
-router.post('/', async (req, res) => {
+// Use memoryStorage if you want req.file.buffer
+const upload = multer({ storage: multer.memoryStorage() });
+
+router.post('/', upload.single('file'), async (req, res) => {
   try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
     const { buffer, originalname, mimetype } = req.file;
     const pdfBuffer = await convertToPdf(buffer, originalname, mimetype);
 
